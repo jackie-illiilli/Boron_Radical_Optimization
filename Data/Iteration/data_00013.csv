@@ -1,0 +1,11 @@
+B_Smiles,B_Index,S_Smiles,S_Index,ini_Smiles,ini_Index,sol_Smiles,sol_Index,sol_name,eqs,Cl_Index,Cl_Atomid
+[BH2-][n+]1ccc(N(C)C)cc1,6,Cc1cccc(C)c1S,2007,CC(C)CC(C)(C#N)/N=N/C(C)(C#N)CC(C)C,4001,CCN 9_1 O,3016,,3.0,5001,19
+[BH2-][n+]1ccc(N(C)C)cc1,6,Cc1cccc(C)c1S,2007,CC(C)CC(C)(C#N)/N=N/C(C)(C#N)CC(C)C,4001,CCN 6_1 O,3017,,3.0,5001,19
+[BH2-][n+]1ccc(N(C)C)cc1,6,Cc1cccc(C)c1S,2007,CC(C)CC(C)(C#N)/N=N/C(C)(C#N)CC(C)C,4001,CCN 9_1 O,3016,,2.5,5001,19
+[BH2-][n+]1ccc(N(C)C)cc1,6,Cc1cccc(C)c1S,2007,CC(C)CC(C)(C#N)/N=N/C(C)(C#N)CC(C)C,4001,CCN 6_1 O,3017,,2.5,5001,19
+[BH2-][n+]1ccc(N(C)C)cc1,6,Cc1cccc(C)c1S,2007,CC(C)CC(C)(C#N)/N=N/C(C)(C#N)CC(C)C,4001,CCN 3_1 O,3018,,3.0,5001,19
+[BH2-][n+]1ccc(N(C)C)cc1,6,Cc1cccc(C)c1S,2007,CC(C)CC(C)(C#N)/N=N/C(C)(C#N)CC(C)C,4001,CCN 3_1 O,3018,,2.5,5001,19
+[BH2-][n+]1ccc(N(C)C)cc1,6,Cc1cccc(C)c1S,2007,CC(C)CC(C)(C#N)/N=N/C(C)(C#N)CC(C)C,4001,CCN 6_1 O,3017,,2.0,5001,19
+[BH2-][n+]1ccc(N(C)C)cc1,6,Cc1cccc(C)c1S,2007,CC(C)CC(C)(C#N)/N=N/C(C)(C#N)CC(C)C,4001,CCN 9_1 O,3016,,2.0,5001,19
+[BH2-][n+]1ccc(N(C)C)cc1,6,Cc1cccc(C)c1S,2007,CC(C)CC(C)(C#N)/N=N/C(C)(C#N)CC(C)C,4001,CCN 3_1 O,3018,,2.0,5001,19
+[BH2-][n+]1ccc(N(C)C)cc1,6,Cc1cccc(C)c1S,2007,CC(C)CC(C)(C#N)/N=N/C(C)(C#N)CC(C)C,4001,CCN 3_1 O,3018,,1.5,5001,19

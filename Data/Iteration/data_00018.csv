@@ -1,0 +1,11 @@
+B_Smiles,B_Index,S_Smiles,S_Index,ini_Smiles,ini_Index,sol_Smiles,sol_Index,sol_name,eqs,Cl_Index,Cl_Atomid
+[BH2-][n+]1cccc(OC)c1,12,COc1ccccc1S,2003,CC(C)CC(C)(C#N)/N=N/C(C)(C#N)CC(C)C,4001,CCN 9_1 O,3016,,2.0,5002,17
+[BH2-][n+]1cccc(OC)c1,12,Fc1ccc(S)c(F)c1,2004,CC(C)CC(C)(C#N)/N=N/C(C)(C#N)CC(C)C,4001,CCN 9_1 O,3016,,2.5,5002,17
+[BH2-][n+]1cccc(OC)c1,12,Fc1ccc(S)c(F)c1,2004,CC(C)CC(C)(C#N)/N=N/C(C)(C#N)CC(C)C,4001,CCN 3_1 O,3018,,2.5,5002,17
+[BH2-][n+]1cccc(OC)c1,12,Fc1ccc(S)c(F)c1,2004,CC(C)CC(C)(C#N)/N=N/C(C)(C#N)CC(C)C,4001,CCN 6_1 O,3017,,2.5,5002,17
+[BH2-][n+]1cccc(OC)c1,12,COc1ccccc1S,2003,CC(C)CC(C)(C#N)/N=N/C(C)(C#N)CC(C)C,4001,CCN 9_1 O,3016,,2.5,5002,17
+[BH2-][n+]1cccc(OC)c1,12,Fc1ccc(S)c(F)c1,2004,CC(C)CC(C)(C#N)/N=N/C(C)(C#N)CC(C)C,4001,CCN 9_1 O,3016,,2.0,5002,17
+[BH2-][n+]1cccc(OC)c1,12,Fc1ccc(S)c(F)c1,2004,CC(C)CC(C)(C#N)/N=N/C(C)(C#N)CC(C)C,4001,CCN 6_1 O,3017,,2.0,5002,17
+[BH2-][n+]1cccc(OC)c1,12,COc1ccccc1S,2003,CC(C)CC(C)(C#N)/N=N/C(C)(C#N)CC(C)C,4001,CCN 6_1 O,3017,,2.0,5002,17
+[BH2-][n+]1cccc(OC)c1,12,CC(C)c1cc(C(C)C)c(S)c(C(C)C)c1,2005,CC(C)CC(C)(C#N)/N=N/C(C)(C#N)CC(C)C,4001,CCN 9_1 O,3016,,2.5,5002,17
+[BH2-][n+]1cccc(OC)c1,12,CC(C)c1cc(C(C)C)c(S)c(C(C)C)c1,2005,CC(C)CC(C)(C#N)/N=N/C(C)(C#N)CC(C)C,4001,CCN 9_1 O,3016,,3.0,5002,17
