@@ -1,6 +1,0 @@
-B_Smiles,B_Index,S_Smiles,S_Index,ini_Smiles,ini_Index,sol_Smiles,sol_Index,sol_name,eqs,yield
-[BH2-][n+]1ccc(N(C)C)cc1,6,Cc1cccc(C)c1S,2007,O=C(OOC(=O)c1ccccc1)c1ccccc1,4005,CN(C)C=O,3007,DMF,2.5,
-[BH2-][n+]1ccc(N(C)C)cc1,6,Cc1cccc(C)c1S,2007,O=C(OOC(=O)c1ccccc1)c1ccccc1,4005,CN(C)C=O,3007,DMF,3,
-[BH2-][n+]1ccc(N(C)C)cc1,6,CC(C)c1cc(C(C)C)c(S)c(C(C)C)c1,2005,CC1CC(C)(C)CC(OOC(C)(C)C)(OOC(C)(C)C)C1,4003,CN(C)C=O,3007,DMF,2.5,
-[BH2-][n+]1ccc(N(C)C)cc1,6,CC(C)c1cc(C(C)C)c(S)c(C(C)C)c1,2005,CCCCCCCCCCCC(=O)OOC(=O)CCCCCCCCCCC,4004,CN(C)C=O,3007,DMF,2.5,
-[BH2-][n+]1ccc(N(C)C)cc1,6,CC(C)c1cc(C(C)C)c(S)c(C(C)C)c1,2005,CCCCCCCCCCCC(=O)OOC(=O)CCCCCCCCCCC,4004,CN(C)C=O,3007,DMF,3,
