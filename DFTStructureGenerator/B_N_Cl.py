@@ -10,19 +10,12 @@ from . import logfile_process, FormatConverter, xtb_process, mol_manipulation, T
 
 
 def generate_combinations(reactant_file, result_file):
-    """根据给定的excel，获取反应物、反应位点、编号便于统计
+    """Analysis Reactants, Get React Atom ID
 
     Args:
-        reactant_file (str): 原始Excel的路径
-        Bresult_file (str): 要存储B自由基信息的文件路径
-        Nresult_file (_type_): 要存储配体信息的文件路径
-        Clresult_file (_type_): 要存储氯化物信息的文件路径
-
-    Returns:
-        list: 含有多种反应位点的配体的编号
-    """    
-    duplicate_N = []
-    duplicate_Cl = []
+        reactant_file (_type_): _description_
+        result_file (_type_): _description_
+    """  
     react_csv = pd.read_csv(reactant_file)
     BN_smiles = react_csv["B_N"].dropna().to_numpy()
     BN_index = react_csv['B_N_id'].dropna().to_numpy()
