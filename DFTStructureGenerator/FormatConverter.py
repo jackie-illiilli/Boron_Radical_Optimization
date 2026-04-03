@@ -1,4 +1,4 @@
-# 一些文件转换的脚本写在这里
+# Some file conversion scripts are here
 import numpy as np
 import pandas as pd
 import shutil, os
@@ -8,7 +8,7 @@ from rdkit.Chem import AllChem
 
 from . import Tool
 # def MolFormatConversion(input_file: str, output_file: str, input_format="xyz", output_format="sdf"):
-#     """简单的完成xyz和sdf转换，
+#     """Simply complete xyz and sdf conversion,
 
 #     Args:
 #         input_file (str): file dir
@@ -66,7 +66,7 @@ def xyz_to_gjf(choose="opt"):
             af.write("\n\n")
 
 def mol_to_xyz(mol, atom_list=None, position_list=None, file_dir="test.xyz",title=None):
-    """最基础的mol转化为xyz文件的过程
+    """The most basic process of converting mol to xyz file
 
     Args:
         mol (Chem.Mol): 
@@ -159,7 +159,7 @@ def block_to_gjf(symbol_list, positions, file="test_data/mol2gjf.gjf", charge=0,
         method (str, optional): _description_. Defaults to "opt freq b3lyp/6-311g(d,p)".
         method2 (_type_, optional): _description_. Defaults to None.
         freeze (_type_, optional): Freeze atoms, as TS calculation. Defaults to [].
-        savechk (str, optional): Name of Chkfile, 省略.chk. Defaults to None.
+        savechk (str, optional): Name of Chkfile, ignoring .chk. Defaults to None.
     """    
     file_dir, filename = os.path.split(file)
     if not os.path.isdir(file_dir):

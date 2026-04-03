@@ -1,4 +1,4 @@
-# 一些常用工具的集合文档
+# A collection of common tools
 from inspect import BoundArguments
 import math, os, shutil
 import numpy as np
@@ -87,7 +87,7 @@ def get_bond_angle(atom_positionA, atom_positionB, atom_positionC):
     return bond_angle
 
 def get_torsion(A, B, C, D):
-    """计算A-B-C-D二面角的cos值
+    """Calculate the cos value of the A-B-C-D dihedral angle
 
     Args:
         A (array): points

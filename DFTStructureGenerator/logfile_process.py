@@ -1,4 +1,4 @@
-"""专门用于读取Gaussian输出文件的模块"""
+"""Module designed for reading Gaussian output files"""
 
 from copy import deepcopy
 import numpy as np
@@ -56,13 +56,13 @@ class bond_addition_function():
 class Logfile():
     
     def __init__(self, file_dir, mol_file_dir=None,read_title=True, freq_warning=False, bond_attach_std='mol', bond_addition_function=None, bond_ignore_list=None):
-        """读取Gaussian输出文件
+        """Read Gaussian output files
 
         Args:
-            file_dir (_type_): .log输出文件地址
-            mol_file_dir (_type_, optional): 对应的.mol文件地址，一些功能需要依赖mol文件. Defaults to None.
-            read_title (bool, optional): 是否按照指定模板读取title信息. Defaults to True.
-            freq_warning (bool, optional): 忽略(虚频和自旋多重度)警告. Defaults to False.
+            file_dir (_type_): .log output file path
+            mol_file_dir (_type_, optional): Corresponding .mol file path, some functions require mol files. Defaults to None.
+            read_title (bool, optional): Whether to read title information according to the specified template. Defaults to True.
+            freq_warning (bool, optional): Ignore warnings (imaginary frequency and spin multiplicity). Defaults to False.
 
         Returns:
             _type_: _description_
@@ -181,7 +181,7 @@ class Logfile():
         else: return True
 
     def read_title(self):
-        """按照$$$$Title####charge????的模板读取title信息
+        """Read title information according to the template $$$$Title####charge????
 
         Returns:
             list: [title, int of charge]
@@ -202,7 +202,7 @@ class Logfile():
         return title
 
     def read_charge_multiplicity(self):
-        """读取电荷和自旋多重度
+        """Read charge and spin multiplicity
 
         Returns:
             list: [charge, multiplicity]
@@ -226,7 +226,7 @@ class Logfile():
             return float(line_[idx+1])
 
     def read_first_position(self):
-        """在输出文件中读取分子的元素名称和输入坐标，可在一定的Gaussian报错程度下运行
+        """Read the elemental names and input coordinates of the molecule from the output file. Can operate under a certain degree of Gaussian errors.
 
         Returns:
             list: [atom list, position(n*3)]
@@ -257,10 +257,10 @@ class Logfile():
                 return None, None
 
     def read_running_position(self, read_first=False):
-        """读取每一次的输出坐标，最后一个输出坐标是驻点坐标
+        """Read each output coordinate; the last output coordinate is the stationary point coordinate
 
         Args:
-            read_first (bool, optional): 是否只需要第一个坐标. Defaults to False.
+            read_first (bool, optional): Whether only the first coordinate is needed. Defaults to False.
 
         Returns:
             np.array: position of atoms(n*3)
@@ -312,7 +312,7 @@ class Logfile():
         return method
 
     def read_unreal_freq(self, freq_warning=True):
-        """检测是否存在虚频，输出虚频个数，最大的虚频对于的虚频振动坐标和虚频值
+        """Detect if there is an imaginary frequency, output the number of imaginary frequencies, the vibrational coordinates and value of the largest imaginary frequency
 
         Args:
             file_dir (_type_): _description_
@@ -345,13 +345,13 @@ class Logfile():
         return num_unreal_freq, matrix, smallest_freq_list[0]
 
     def read_log_eng(self): 
-        """读取优化文件的能量信息：电子能，零点能，常温热能矫正，焓矫正，自由能矫正
+        """Read optimization file energy info: electronic energy, ZPE, thermal correction, enthalpy, Gibbs free energy
 
         Args:
             gjffile (str): *.log
 
         Returns:
-            ee, zpc, cor_Energy, cor_Enthalpies, cor_Gibbs : [list with 电子能，零点能，常温热能矫正，焓矫正，自由能矫正]
+            ee, zpc, cor_Energy, cor_Enthalpies, cor_Gibbs : [list with electronic energy, ZPE, thermal, enthalpy, Gibbs]
         """
         all_engs = []
         opt_engs = []
@@ -381,7 +381,7 @@ class Logfile():
         return all_engs, opt_engs
 
     def read_log_time(self):
-        """读取所有计算流程的耗时分钟数
+        """Read the running time in minutes for the entire calculation process
 
         Returns:
             float: 
@@ -394,7 +394,7 @@ class Logfile():
         return alltime
 
     def read_freeze(self):
-        """读取在输入文件中冻结的键长和二面角，对应的原子编号
+        """Read the frozen bond lengths and dihedral angles in the input file, corresponding atom numbers
 
         Returns:
             list: [[[a, b], [c, d]], [[a,b,c,d], [e,f,g,h]]]
@@ -412,12 +412,12 @@ class Logfile():
         return freeze, difreeze
 
     def find_error_reason(self):
-        """找到Gaussian的错误原因
+        """Find the Gaussian error reason
         """        
         errorline_id = [i for i, line in enumerate(self.filelines) if " Error termination" in line]
         # errorline_id = Tool.find_first_line(self.filelines,"start")[0]
         if len(errorline_id) == 0 and not self.normal_end:
-            print(self.file_dir, "应该是没跑完")
+            print(self.file_dir, "may not have finished running")
             error_reason_line = "unfinished"
         else:
             errorline_id = errorline_id[-1]
@@ -448,13 +448,13 @@ class Logfile():
         return method
 
     def solve_error_logfile(self, new_log_dir, Inv_dir, yqc_dir, savechk=None, readchk=None, maxcycles=0, method=None):
-        """选取能量最低结构，用相同方法继续跑，适用于link 9999等
+        """Select the structure with the lowest energy, continue running with the same method. Applicable to link 9999 etc.
 
         Args:
-            new_log_dir (str): 存放报错输出文件和新的输入文件的地址
-            move_file (bool, optional): 是否将报错文件移走. Defaults to True.
-            savechk (_type_, optional): 是否要在输入文件中写savechk信息. Defaults to None.
-            readchk (_type_, optional): 是否要在输入文件中写readchk信息. Defaults to None.
+            new_log_dir (str): Path to store the error log output and new input files
+            move_file (bool, optional): Whether to move the error file. Defaults to True.
+            savechk (_type_, optional): Whether to write savechk info in input file. Defaults to None.
+            readchk (_type_, optional): Whether to write readchk info in input file. Defaults to None.
 
         """        
         reason = self.error_reason
@@ -531,7 +531,7 @@ class Logfile():
                 FormatConverter.block_to_gjf(self.symbol_list, target_position, new_gjf_name, self.charge, self.multiplicity, title, method, freeze=self.freeze, difreeze=self.difreeze, savechk=savechk, readchk=readchk)
 
     def l103_error_idx(self):
-        """找到l103报错的键角和二面角的原子编号
+        """Find atom indices of bond angle and dihedral angle for l103 error
 
         Returns:
             list: [[a,b,c], [a,b,c,d]]
@@ -567,11 +567,11 @@ class Logfile():
         return angle_idx, dihedral_idx
                     
     def l103_adjust(self):
-        """适当调整键角和二面角
+        """Appropriately adjust bond angle and dihedral angle
         """        
         def get_Rotation_M(axial_v, theta):
             v = np.array(axial_v[:3])
-            # 归一化
+            # Normalization
             u, v, w = v/np.linalg.norm(v)
             a = theta
             R_M = np.array([[u**2+(1-u**2)*np.cos(a),       u*v*(1-np.cos(a))-w*np.sin(a),  u*w*(1-np.cos(a))+v*np.sin(a),  0],
@@ -622,17 +622,17 @@ class Logfile():
         if self.angle_idx.all():
             new_position = self.l103_adjust()
         else:
-            print('!!! Warning file: %s; Unknown Error：%s'%(self.file_dir, self.error_reason))
+            print('!!! Warning file: %s; Unknown Error: %s'%(self.file_dir, self.error_reason))
             new_position = self.running_positions[-2]
         return new_position
 
     def check_bond_attach(self, standard_file='mol', print_num = False, conf_id=-1, bond_addition_function=None, bond_ignore_list=None):
-        """在Mol文件帮助下，检查原子连接是否在原先键长的0.75到1.3倍之间。
+        """With the help of Mol file, check if atom connections are within 0.75 to 1.3 times the original bond length.
 
         Args:
-            standard_file (str, optional): Mol文件. Defaults to 'mol'.
+            standard_file (str, optional): Mol file. Defaults to 'mol'.
             print_num (bool, optional): . Defaults to False.
-            conf_id (int, optional): Mol的构象编号. Defaults to -1.
+            conf_id (int, optional): Mol conformer ID. Defaults to -1.
 
         Returns:
             _type_: _description_
@@ -695,7 +695,7 @@ class Logfile():
         return -1
 
     def unreal_freq_improve(self, new_log_dir, savechk=None, readchk=None, method=None):
-        """解决虚频问题: 将虚频振动的1.1倍带入到下一步优化结构中
+        """Solve imaginary frequency problem: carry 1.1 times imaginary vibration into the next optimization structure
 
         Args:
             logfile (_type_): _description_
@@ -714,7 +714,7 @@ class Logfile():
         FormatConverter.block_to_gjf(self.symbol_list, new_position, new_gjf_name, self.charge, self.multiplicity, title, method, freeze=self.freeze, difreeze=self.difreeze , savechk=savechk, readchk=readchk)
 
     def react_RMSD(self):
-        """判断优化过程中的RMSD变化
+        """Determine RMSD change during optimization
 
         Args:
             log_dir (_type_): _description_
@@ -732,7 +732,7 @@ class Logfile():
         return np.sqrt(sum_delta2)
 
     def check_om(self, return_value=False, set_num=0.4):
-        """读取过渡态结构，判断过渡态虚频是否对应反应位点
+        """Read transition state structure to determine if TS imaginary frequency corresponds to the reaction site
 
         Args:
             file_dir (str): _description_
@@ -790,11 +790,11 @@ class Logfile():
         return result_lists
 
     def read_orbit_eng(self, HOMO_index = [-2, -1], LUMO_index=[0,1]):
-        """读取HOMO和LUMO轨道的能量
+        """Read energy of HOMO and LUMO orbitals
 
         Args:
-            HOMO_index (list, optional): 对应HOMO轨道的编号. Defaults to [-2, -1].
-            LUMO_index (list, optional): 对应LUMO轨道的编号. Defaults to [0,1].
+            HOMO_index (list, optional): Indices corresponding to HOMO orbitals. Defaults to [-2, -1].
+            LUMO_index (list, optional): Indices corresponding to LUMO orbitals. Defaults to [0,1].
 
         Returns:
             list: 

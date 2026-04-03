@@ -65,10 +65,10 @@ def generate_combinations(reactant_file, result_file):
     result_csv.to_csv(result_file, index=False)
 
 def B_N_Single_Xtb(root_file, result_file, mol_xtb_name = 'Mol_xtb', mol_name = "Mols"):
-    """产生B自由基、配体单体的Xtb优化文件
+    """Generate Xtb optimization files for B radicals and ligands
 
     Args:
-        result_file (str): 存储信息的文件路径
+        result_file (str): File path to store information
     """    
     result_file=pd.read_csv(result_file)
     mol_xtb_file = os.path.join(root_file, mol_xtb_name)
@@ -113,16 +113,16 @@ def smiles_DFT_calc(root_dir='first_xtb',
                     rmsd_limit=1.5,
                     SpinMultiplicity = None
                     ):
-    """通过Xtb结果，优化得到Gaussian优化输入文件
+    """Optimize and generate Gaussian input files based on Xtb results
 
     Args:
-        root_dir (str, optional): Xtb的根目录. Defaults to 'first_xtb'.
-        mol_dir (str, optional): Mol分子的目录. Defaults to 'mol'.
-        dft_dir (str, optional): 要存储Gaussian输入文件的目录. Defaults to 'mol_dft'.
-        method (str, optional): Gaussian方法. Defaults to "opt freq b3lyp/6-31g* em=gd3bj".
-        conf_limit (int, optional): Xtb读取结构的构象数量限制. Defaults to 3.
-        rmsd_limit (float, optional): Xtb读取结构的RMSD限制. Defaults to 1.5.
-        SpinMultiplicity (int, optional): 设定的自旋多重度. Defaults to None.
+        root_dir (str, optional): Xtb root directory. Defaults to 'first_xtb'.
+        mol_dir (str, optional): Directory of Mol molecules. Defaults to 'mol'.
+        dft_dir (str, optional): Directory to store Gaussian input files. Defaults to 'mol_dft'.
+        method (str, optional): Gaussian method. Defaults to "opt freq b3lyp/6-31g* em=gd3bj".
+        conf_limit (int, optional): Confirmation number limit for Xtb structures. Defaults to 3.
+        rmsd_limit (float, optional): RMSD limit for Xtb structures. Defaults to 1.5.
+        SpinMultiplicity (int, optional): Set spin multiplicity. Defaults to None.
     """                    
     all_files = glob.glob(root_dir + "/*/*/*")
     for xtb_file in all_files:
@@ -272,44 +272,44 @@ def descriptor_generator(csv_file, index_map, Cl_des_map):
 def draw_correlation_map(X, y=None, figure_size=(5, 5), colors='coolwarm', 
                          useSVG=False, save_name='test', annot=True, show_label=False):
     """
-    绘制相关性热图
-    X: 特征矩阵 (pandas DataFrame 或 numpy array)
-    y: 目标变量 (可选, pandas Series 或 numpy array)。如果传入y，则对角线显示 |corr(X_i, y)|
+    Plot correlation heatmap
+    X: Feature matrix (pandas DataFrame or numpy array)
+    y: Target variable (optional, pandas Series or numpy array). If y is passed, the diagonal will show |corr(X_i, y)|
     """
     df = pd.DataFrame(X)
     
-    # 计算特征之间的绝对相关性矩阵
+    # Calculate the absolute correlation matrix between features
     correlation_matrix = np.abs(df.corr())
     
-    # 如果传入了 y，则把对角线替换为每个特征与 y 的绝对相关性
+    # Replace diagonal with the absolute correlation of each feature and y
     if y is not None:
-        y = pd.Series(y).reset_index(drop=True)   # 确保对齐
+        y = pd.Series(y).reset_index(drop=True)   # Ensure alignment
         corr_with_y = np.abs(df.corrwith(y))
-        # 把相关性矩阵的对角线替换为与 y 的相关性
+        # Replace diagonal with correlation to y
         np.fill_diagonal(correlation_matrix.values, corr_with_y.values)
     
-    # 生成上三角掩码（不显示对称部分）
+    # Generate an upper triangle mask
     mask = np.tril(np.ones_like(correlation_matrix, dtype=bool))
     
-    print("最大相关系数（不含对角线）:", 
+    print("Max correlation (no diag):", 
           np.max(np.nan_to_num(correlation_matrix.to_numpy()[mask], 0)))
     
-    # 绘图
+    # Plot
     f, ax = plt.subplots(figsize=figure_size, dpi=300)
     annot_kws = {"fontsize": 10}
     
     ax = sns.heatmap(correlation_matrix, 
                      mask=~mask,
-                     cmap=colors,          # 使用传入的 colors 参数
+                     cmap=colors,          # Use colors
                      annot=annot,         
-                     fmt='.2f',            # 建议改成 .2f，更清晰
+                     fmt='.2f',            # Suggest .2f for clarity
                      center=0,           
                      cbar=True,
                      annot_kws=annot_kws,
-                     linewidths=0.5,       # 增加轻微网格线，更美观
+                     linewidths=0.5,       # Aesthetics
                      linecolor='white')
     
-    # 颜色条字体大小
+    # Color bar font size
     cbar = ax.collections[0].colorbar
     cbar.ax.tick_params(labelsize=10)
     
@@ -317,7 +317,7 @@ def draw_correlation_map(X, y=None, figure_size=(5, 5), colors='coolwarm',
         ax.set_xticklabels([])
         ax.set_yticklabels([])
     else:
-        # 可选：旋转标签避免重叠
+        # Optional: rotate labels
         ax.set_xticklabels(ax.get_xticklabels(), rotation=45, ha='right')
         ax.set_yticklabels(ax.get_yticklabels(), rotation=0)
     
@@ -328,7 +328,7 @@ def draw_correlation_map(X, y=None, figure_size=(5, 5), colors='coolwarm',
     else:
         plt.savefig(f"{save_name}.png", dpi=300, bbox_inches='tight')
     
-    # plt.close()   # 防止在循环中显示过多图像
+    # plt.close()   # Prevent too many images
 
 def calc_distribution2(y, eachsize=0.01, title=None, xlab=None, ylab="Count", y_max=None, y_min=None, figure_size = (4,3)):
     if y_max == None:    y_max = np.max(y)
@@ -365,18 +365,18 @@ def calc_distribution2(y, eachsize=0.01, title=None, xlab=None, ylab="Count", y_
 # Model 
 def normalize_axis(arr, axis=0, mean=[], std=[]):
     """
-    对数组中的某一维进行标准化（z-score normalization）
+    Standardize a specific dimension in an array (z-score normalization)
     
-    参数：
-    arr: ndarray，输入的数组
-    axis: int，标准化的维度
+    Args:
+    arr: ndarray, input array
+    axis: int, dimension to standardize
     
-    返回值：
-    normalized_arr: ndarray，标准化后的数组
+    Returns:
+    normalized_arr: ndarray, standardized array
     """
     if len(mean) == 0 or len(mean) == 0:
-        mean = np.mean(arr, axis=axis, keepdims=True)  # 计算均值
-        std = np.std(arr, axis=axis, keepdims=True)  # 计算标准差
-    normalized_arr = (arr - mean) / std  # 标准化
+        mean = np.mean(arr, axis=axis, keepdims=True)  # Calculate mean
+        std = np.std(arr, axis=axis, keepdims=True)  # Calculate std
+    normalized_arr = (arr - mean) / std  # Normalize
     normalized_arr = np.nan_to_num(normalized_arr, 0)
     return normalized_arr, mean, std
