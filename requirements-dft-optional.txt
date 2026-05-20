@@ -1,0 +1,6 @@
+morfeus-ml
+mordred
+dscribe
+ase
+scipy
+traitlets

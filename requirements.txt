@@ -1,0 +1,12 @@
+numpy
+pandas
+openpyxl
+scikit-learn
+catboost
+rdkit
+matplotlib
+seaborn
+tqdm
+jupyterlab
+notebook
+ipykernel
