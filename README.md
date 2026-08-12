@@ -1,6 +1,9 @@
-# Programmable Multistep Radical Dechlorinative Functionalization
+# Reactivity-guided hierarchical active learning enables programmable radical dechlorination of polychloroarenes
+
+---
 
 [![DOI](https://zenodo.org/badge/969837101.svg)](https://doi.org/10.5281/zenodo.21897320)
+
 This repository contains the data, notebooks, and helper code used for the manuscript:
 
 **Programmable multistep radical dechlorinative functionalization of polychloroarenes through hierarchical active learning**
@@ -134,17 +137,17 @@ The tested result was mean R2 = 0.7009989 and mean MAE = 9.6753 percentage point
 
 For data that use the included reagent and chloroarene descriptor caches, prepare an `.xlsx` file with one experimental condition per row and the following columns:
 
-| Column | Meaning | Requirement |
-|---|---|---|
-| `B_Index` | Borane-Lewis base index from `Processed_Reactants.csv` | Required |
-| `eqs` | Borane loading in equivalents | Required |
-| `S_Index` | Thiol index | Required |
-| `ini_Index` | Initiator index | Required |
-| `sol_Index` | Solvent-system index | Required |
-| `Cl_Index` | Chloroarene descriptor index | Required for manuscript substrates |
-| `Cl_Atomid` | Target chlorine-site atom index | Required for site-specific entries |
-| `yield` | Experimental yield in percent | Required for model training/validation |
-| `sol_name` | Human-readable solvent label | Optional; ignored by the model |
+| Column        | Meaning                                                 | Requirement                            |
+| ------------- | ------------------------------------------------------- | -------------------------------------- |
+| `B_Index`   | Borane-Lewis base index from`Processed_Reactants.csv` | Required                               |
+| `eqs`       | Borane loading in equivalents                           | Required                               |
+| `S_Index`   | Thiol index                                             | Required                               |
+| `ini_Index` | Initiator index                                         | Required                               |
+| `sol_Index` | Solvent-system index                                    | Required                               |
+| `Cl_Index`  | Chloroarene descriptor index                            | Required for manuscript substrates     |
+| `Cl_Atomid` | Target chlorine-site atom index                         | Required for site-specific entries     |
+| `yield`     | Experimental yield in percent                           | Required for model training/validation |
+| `sol_name`  | Human-readable solvent label                            | Optional; ignored by the model         |
 
 All categorical indices must exist in `Data/Processed_Reactants.csv`, `Data/PhysOrgdes_new.pkl`, or `Data/Cldes_new.pkl`. Then construct the feature matrix with:
 
