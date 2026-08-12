@@ -1,7 +1,6 @@
 # Programmable Multistep Radical Dechlorinative Functionalization
 
 [![DOI](https://zenodo.org/badge/969837101.svg)](https://doi.org/10.5281/zenodo.21897320)
-
 This repository contains the data, notebooks, and helper code used for the manuscript:
 
 **Programmable multistep radical dechlorinative functionalization of polychloroarenes through hierarchical active learning**
