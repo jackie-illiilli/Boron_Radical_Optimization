@@ -1,5 +1,7 @@
 # Programmable Multistep Radical Dechlorinative Functionalization
 
+[![DOI](https://zenodo.org/badge/969837101.svg)](https://doi.org/10.5281/zenodo.21897320)
+
 This repository contains the data, notebooks, and helper code used for the manuscript:
 
 **Programmable multistep radical dechlorinative functionalization of polychloroarenes through hierarchical active learning**
@@ -199,7 +201,7 @@ Before generating a recommendation, set `Times`, `Cl`, and `Cl_atomid` to the in
 
 ## Code and data availability
 
-The GitHub repository is private during manuscript preparation. For peer review, the complete repository should be supplied as a single zip archive or through a private reviewer-access link. Before publication, this section and the manuscript Code availability statement must be updated with the public repository URL and an immutable archived release identifier.
+An immutable release of the source code, notebooks, cached descriptors, and supporting data is archived on Zenodo at [https://doi.org/10.5281/zenodo.21897320](https://doi.org/10.5281/zenodo.21897320). The GitHub repository remains private during manuscript preparation; its public URL will be added here and to the manuscript before publication.
 
 The source code is released under the OSI-approved BSD 3-Clause License. See `LICENSE` for the complete terms.
 

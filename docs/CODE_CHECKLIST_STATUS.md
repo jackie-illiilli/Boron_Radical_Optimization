@@ -9,6 +9,7 @@ Status reviewed against `docs/nr-software-policy`.
 - `demo.py` provides a deterministic, timed, end-to-end demo with expected outputs.
 - `environment.yml` has been solved from scratch on Windows and the demo passes in that clean environment; the exact resolved versions and installation time are recorded in the README.
 - The source code is distributed under the OSI-approved BSD 3-Clause License in the repository-level `LICENSE` file.
+- The archived release has the DOI `10.5281/zenodo.21897320`; the README includes a Zenodo badge and the manuscript Code availability statement cites the DOI.
 - The README documents system requirements, tested versions, hardware requirements, installation, install-time expectations, demo inputs and outputs, custom-data columns, and manuscript reproduction.
 - `docs/ALGORITHM.md` documents the model, fixed seeds, acquisition process, hierarchical filtering, and pseudocode.
 - The manuscript describes the transition from the 222,768 nominal combinations to the 205,632 experimentally feasible combinations and includes computational-method and Code availability text.
@@ -17,8 +18,7 @@ Status reviewed against `docs/nr-software-policy`.
 ## Actions remaining before peer review or public release
 
 - Have a colleague unfamiliar with the project install and run the demo in a fresh environment; record their OS, versions, installation time, runtime, and any corrections.
-- Provide reviewers with either a single repository zip or a private reviewer-access link.
 - Replace the provisional Code availability text with the final public repository URL before publication.
-- After creating a release and archival deposit, add the immutable version/tag and DOI. Zenodo metadata is intentionally deferred.
+- Add the corresponding public GitHub version/tag when the repository is opened. A repository-level `zenodo.json` metadata file remains intentionally deferred.
 - Confirm the exact versions of Gaussian, xTB/CREST, and Julia only if the optional descriptor or PySR workflows are claimed as independently reproducible.
 - Linux and macOS testing is optional but would strengthen the system-requirements statement.
