@@ -1,0 +1,40 @@
+Code and Software Submission Checklist
+Prior to submitting your work to Nature Research, we strongly recommend that you ask at least one colleague who is unfamiliar with your software to
+install the tool(s), follow the instructions, and provide feedback. This process will help ensure that reviewers will also be able to run your software.
+You must submit all required content as a single zip file prior to peer review or provide a link where editors and reviewers can access all required content.
+} Required content
+Compiled standalone software and/or source code
+A small (simulated or real) dataset to demo the software/code
+A README file that includes:
+1. System requirements
+All software dependencies and operating systems (including version numbers)
+Versions the software has been tested on
+Any required non-standard hardware
+2. Installation guide
+Instructions
+Typical install time on a "normal" desktop computer
+3. Demo
+Instructions to run on data
+Expected output
+Expected run time for demo on a "normal" desktop computer
+4. Instructions for use
+How to run the software on your data
+(OPTIONAL) Reproduction instructions
+We encourage you to include instructions for reproducing all the quantitative results in the manuscript.
+} Additional information
+Describe your software's license for use. We strongly recommend using a license approved by the Open Source Initiative.
+Provide a link to the code in an open source repository (when available).
+Your manuscript should include a complete, detailed description of the code's functionality (i.e. pseudocode).
+Please indicate where this is found:
+Main text
+Methods section
+Elsewhere (specify):
+} Examples of well-structured software packages
+1. https://github.com/neurodata-papers/MGC
+2. https://github.com/neurodata-papers/LOL
+3. https://www.nature.com/nbt/journal/v34/n6/abs/nbt.3569.html#supplementary-information
+4. https://www.nature.com/nature/journal/v548/n7669/full/nature23463.html#extended-data
+https://github.com/yasharhezaveh/Ensai
+5. https://www.nature.com/nbt/journal/v34/n11/full/nbt.3685.html#supplementary-information
+https://github.com/IFIproteomics/LFQbench
+This checklist template is licensed under

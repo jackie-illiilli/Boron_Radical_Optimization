@@ -2,17 +2,12 @@ import os, glob, math, shutil, pickle, random, copy
 import pandas as pd
 import numpy as np
 from rdkit import Chem
-from rdkit.Chem import Draw
 from rdkit.Chem import AllChem
-from rdkit.Chem.Draw import MolDrawing, DrawingOptions
 from rdkit.Geometry import Point3D
 from . import FormatConverter, xtb_process
 from . import Tool, logfile_process, B_N_Cl
 op_dir = "../files/"
 
-DrawingOptions.bondLineWidth = 1.8
-DrawingOptions.atomLabelFontSize = 14
-Draw.DrawingOptions.includeAtomNumbers = True
 atom_num = [None, "H", "He", "Li", "Be", "B", "C", "N", "O", "F",
             "Ne", "Na", "Mg", "Al", "Si", "P", "S", "Cl", "Ar", "K", "Ca",
             "Sc", "Ti", "V", "Cr", "Mn", "Fe", "Co", "Ni", "Cu", "Zn", "Ga", "Ge", "As", "Se", "Br", "Kr"]
@@ -82,7 +77,7 @@ def rotation(a, sin, cos):
     """Generate a 4D matrix; multiplying by it rotates around axis by sin, cos angles
 
     Args:
-        a (array): 3维
+        a (array): 3D axis vector.
         sin (float): 
         cos (float): 
 
@@ -433,7 +428,7 @@ def om_to_ts(log_file:logfile_process.Logfile, write_gjf=True, new_dir="ts",
         log_file (logfile_process.Logfile): log file
         write_gjf (bool, optional): Whether to write the input file directly. Defaults to True.
         new_dir (str, optional): Save directory for TS input files. Defaults to "ts".
-        method (str, optional): #p行. Defaults to "opt=(calcfc,ts,noeigen) freq b3lyp/6-31g* em=gd3bj".
+        method (str, optional): Gaussian route-card line (beginning with ``#``). Defaults to "opt=(calcfc,ts,noeigen) freq b3lyp/6-31g* em=gd3bj".
 
     Returns:
         _type_: _description_

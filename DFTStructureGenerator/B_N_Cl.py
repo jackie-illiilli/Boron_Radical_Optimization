@@ -328,6 +328,7 @@ def draw_correlation_map(X, y=None, figure_size=(5, 5), colors='coolwarm',
     else:
         plt.savefig(f"{save_name}.png", dpi=300, bbox_inches='tight')
     
+    return correlation_matrix
     # plt.close()   # Prevent too many images
 
 def calc_distribution2(y, eachsize=0.01, title=None, xlab=None, ylab="Count", y_max=None, y_min=None, figure_size = (4,3)):

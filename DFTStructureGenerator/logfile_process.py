@@ -828,7 +828,7 @@ class Logfile():
         return occ_eng + virt_eng + occ_eng_beta + virt_eng_beta
     
     def get_dipole(self):
-        """读取分子的偶极矩
+        """Read the molecule's dipole moment.
 
         Returns:
             _type_: _description_

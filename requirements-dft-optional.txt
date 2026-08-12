@@ -1,6 +1,6 @@
-morfeus-ml
-mordred
-dscribe
-ase
-scipy
-traitlets
+numpy>=1.26,<2.0
+morfeus-ml>=0.7,<0.8
+mordredcommunity>=2.0,<3
+ase>=3.23,<4
+scipy>=1.13,<1.17
+traitlets>=5.14,<6
