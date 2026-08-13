@@ -6,20 +6,13 @@
 
 This repository contains the data, notebooks, and helper code used for the manuscript:
 
-**Programmable multistep radical dechlorinative functionalization of polychloroarenes through hierarchical active learning**
+**Reactivity-guided hierarchical active learning enables programmable radical dechlorination of polychloroarene**
 
 The project combines physical-organic reaction descriptors with hierarchical active learning to identify stage-specific conditions for selective C-Cl activation in polychloroarenes.
 
 ## Search-space definition
 
-The initially enumerated library contained 222,768 combinations constructed from 26 borane-Lewis base candidates, 14 thiols, 17 solvent systems, 9 initiators, and 4 borane loadings. Before active learning, candidates that were experimentally infeasible because a reagent was unavailable or expected to decompose under the reaction conditions were removed. The curated, experimentally accessible search space therefore contains 205,632 conditions:
-
-```text
-24 borane-Lewis base complexes x 14 thiols x 17 solvent systems x 9 initiators x 4 borane loadings
-= 205,632 candidate conditions
-```
-
-Across the main workflow, CatBoost models and uncertainty-guided acquisition were used to navigate this curated space with 270 experiments and identify complementary condition sets for meta-, ortho-, and para-selective dechlorinative functionalization.
+The initially enumerated library contained 222,768 combinations constructed from 26 borane-Lewis base candidates, 14 thiols, 17 solvent systems, 9 initiators, and 4 borane loadings. Across the main workflow, CatBoost models and uncertainty-guided acquisition were used to navigate this curated space with 270 experiments and identify complementary condition sets for meta-, ortho-, and para-selective dechlorinative functionalization.
 
 ## Repository layout
 
