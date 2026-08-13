@@ -6,7 +6,7 @@
 
 This repository contains the data, notebooks, and helper code used for the manuscript:
 
-**Reactivity-guided hierarchical active learning enables programmable radical dechlorination of polychloroarene**
+**Reactivity-guided hierarchical active learning enables programmable radical dechlorination of polychloroarenes**
 
 The project combines physical-organic reaction descriptors with hierarchical active learning to identify stage-specific conditions for selective C-Cl activation in polychloroarenes.
 
